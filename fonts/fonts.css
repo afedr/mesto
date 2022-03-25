@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  src: url(./inter/Inter-Regular.woff) format('woff'), url(./inter/Inter-Regular.woff2) format('woff2');
+}
