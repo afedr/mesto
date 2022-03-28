@@ -3,4 +3,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 18px;
+  padding-bottom: 16px;
+}
+
+@media screen and (max-width: 400px) {
+  .profile__container {
+    padding-bottom: 14px;
+  }
 }

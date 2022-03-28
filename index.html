@@ -102,19 +102,20 @@
   </footer>
 
   <div class="popup">
-    <div class="popup__container">
+    <div class="popup__content">
       <form class="popup__form">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input name="username" class="popup__input" placeholder="ФИО">
-        <span class="popup__span"></span>
-        <input name="username" class="popup__input" placeholder="О себе">
-        <span class="popup__span"></span>
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <input type="name" name="username" id="userName" class="popup__input-name" placeholder="ФИО">
+        <span class="popup__span-name"></span>
+        <input type="name" name="userabout" id="userAbout" class="popup__input-about" placeholder="О себе">
+        <span class="popup__span-about"></span>
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
-      <button type="escape" class="popup__esc"></button>
     </div>
+    <button type="button" class="popup__close"></button>
   </div>
-
+  <script src="./index.js">
+  </script>
 </body>
 
 </html>

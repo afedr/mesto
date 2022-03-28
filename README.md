@@ -1,9 +1,12 @@
-# Проект: Место
+# Проект: Mesto
 
-### Обзор
 
-* Figma
-* Картинки
+### Stack
+
+* HTML / CSS / BEM
+* DOM
+* JavaScript
+*
 
 **Figma**
 

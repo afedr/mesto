@@ -9,3 +9,9 @@
   background-position: 50%;
   padding: 0;
 }
+
+@media screen and (max-width: 400px) {
+  .profile__button {
+    width: 282px;
+  }
+}

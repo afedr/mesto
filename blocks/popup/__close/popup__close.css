@@ -1,0 +1,21 @@
+.popup__close {
+  background: transparent url('../../../images/Close\ Icon.svg') no-repeat;
+  background-position: center;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: white;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 155px;
+  left: calc(50vw + 223px);
+}
+
+@media screen and (max-width: 400px) {
+  .popup__close {
+    width: 20px;
+    height: 20px;
+    left: calc(50vw + 121px);
+  }
+}

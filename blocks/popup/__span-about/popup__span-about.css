@@ -1,0 +1,10 @@
+.popup__span-about {
+  color: black;
+  padding-bottom: 48px;
+}
+
+@media screen and (max-width: 400px) {
+  .popup__span-about {
+    padding-bottom: 45px;
+  }
+}
