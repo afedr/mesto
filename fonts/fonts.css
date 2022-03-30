@@ -2,5 +2,22 @@
   font-family: 'Inter';
   font-style: normal;
   font-display: swap;
+  font-weight: 400;
   src: url(./inter/Inter-Regular.woff) format('woff'), url(./inter/Inter-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url(./inter/Inter-Medium.woff) format('woff'), url(./inter/Inter-Medium.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(./inter/Inter-Black.woff) format('woff'), url(./inter/Inter-Black.woff2) format('woff2');
 }
