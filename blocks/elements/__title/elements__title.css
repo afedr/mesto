@@ -5,4 +5,8 @@
   color: #000000;
   margin: 0;
   font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 219px;
 }

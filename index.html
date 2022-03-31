@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./vendor/normalize.css">
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 
@@ -26,7 +25,7 @@
         <div class="profile__container">
 
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button type="button" class="profile__edit-button"></button>
+          <button aria-label="Редактирование" type="button" class="profile__edit-button"></button>
         </div>
 
         <h2 class="profile__about">Исследователь океана</h2>
@@ -37,16 +36,16 @@
     <section class="elements">
       <ul class="elements__container">
         <li class="elements__card">
-          <img class="elements__photo" alt="Карачаевск" src="./images/Карачаевск.png">
+          <img class="elements__photo" alt="Карачаевск" src="./images/Karachevsk.png">
           <div class="elements__caption">
             <h2 class="elements__title">Карачаевск</h2>
-            <div class="elements__like">
-              <button class="elements__like-button" type="button"></button>
-            </div>
+
+            <button class="elements__like-button" type="button"></button>
+
           </div>
         </li>
         <li class="elements__card">
-          <img class="elements__photo" alt="Эльбрус" src="./images/Эльбрус.png">
+          <img class="elements__photo" alt="Эльбрус" src="./images/Elbrus.png">
           <div class="elements__caption">
             <h2 class="elements__title">Гора Эльбрус</h2>
             <div class="elements__like">
@@ -55,7 +54,7 @@
           </div>
         </li>
         <li class="elements__card">
-          <img class="elements__photo" alt="Домбай" src="./images/Домбай.png">
+          <img class="elements__photo" alt="Домбай" src="./images/Dombai.png">
           <div class="elements__caption">
             <h2 class="elements__title">Домбай</h2>
             <div class="elements__like">
@@ -64,7 +63,7 @@
           </div>
         </li>
         <li class="elements__card">
-          <img class="elements__photo" alt="Эльбрус" src="./images/Эльбрус.png">
+          <img class="elements__photo" alt="Эльбрус" src="./images/Elbrus.png">
           <div class="elements__caption">
             <h2 class="elements__title">Гора Эльбрус</h2>
             <div class="elements__like">
@@ -73,7 +72,7 @@
           </div>
         </li>
         <li class="elements__card">
-          <img class="elements__photo" alt="Домбай" src="./images/Домбай.png">
+          <img class="elements__photo" alt="Домбай" src="./images/Dombai.png">
           <div class="elements__caption">
             <h2 class="elements__title">Домбай</h2>
             <div class="elements__like">
@@ -82,7 +81,7 @@
           </div>
         </li>
         <li class="elements__card">
-          <img class="elements__photo" alt="Карачаевск" src="./images/Карачаевск.png">
+          <img class="elements__photo" alt="Карачаевск" src="./images/Karachevsk.png">
           <div class="elements__caption">
             <h2 class="elements__title">Карачаевск</h2>
             <div class="elements__like">
@@ -102,16 +101,18 @@
 
   <div class="popup">
     <div class="popup__content">
-      <form class="popup__form">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <input name="username" id="userName" class="popup__input-name" placeholder="ФИО">
-        <span class="popup__span-name"></span>
-        <input name="userabout" id="userAbout" class="popup__input-about" placeholder="О себе">
-        <span class="popup__span-about"></span>
+
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form name="форма" class="popup__form">
+        <input type="text" name="username" id="userName" class="popup__input popup__input_type_name" placeholder="ФИО">
+
+        <input type="text" name="userabout" id="userAbout" class="popup__input popup__input_type_about" placeholder="О себе">
+
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
+      <button type="button" class="popup__close"></button>
     </div>
-    <button type="button" class="popup__close"></button>
+
   </div>
   <script src="./index.js">
   </script>

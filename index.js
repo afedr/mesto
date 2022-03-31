@@ -12,8 +12,8 @@ modalCloseWindow.addEventListener('click', toggleModalWindow);
 
 
 let formElement = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.popup__input-name');
-let jobInput = document.querySelector('.popup__input-about');
+let nameInput = document.querySelector('.popup__input_type_name');
+let jobInput = document.querySelector('.popup__input_type_about');
 let nameEnter = document.querySelector('.profile__name');
 let jobEnter = document.querySelector('.profile__about');
 
@@ -21,8 +21,6 @@ function formSubmitHandler(evt) {
 
   evt.preventDefault();
 
-  console.log('submit', nameInput.value);
-  console.log('submit', jobInput.value);
 
   nameEnter.textContent = nameInput.value;
   jobEnter.textContent = jobInput.value;

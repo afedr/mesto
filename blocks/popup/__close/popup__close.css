@@ -4,18 +4,24 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  color: white;
   width: 32px;
   height: 32px;
   position: absolute;
-  top: 155px;
-  left: calc(50vw + 223px);
+  top: -40px;
+  right: -40px;
+  transition: .1s;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 400px) {
   .popup__close {
     width: 20px;
     height: 20px;
-    left: calc(50vw + 121px);
+    top: -36px;
+    right: 0px;
   }
 }
