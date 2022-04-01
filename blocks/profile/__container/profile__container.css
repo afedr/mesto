@@ -8,6 +8,9 @@
 
 @media screen and (max-width: 400px) {
   .profile__container {
-    padding-bottom: 14px;
+    padding-bottom: 8px;
+    margin: 0 auto;
+    gap: 0px;
+    width: 282px;
   }
 }

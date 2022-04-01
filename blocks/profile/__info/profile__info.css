@@ -11,9 +11,10 @@
 
 @media screen and (max-width: 600px) {
   .profile__info {
-    margin: 0 auto;
+    width: 282px;
+    margin: 0 19px 0 19px;
     text-align: center;
-    padding-top: 22px;
-    padding-bottom: 36px;
+    padding-top: 26px;
+    padding-bottom: 32px;
   }
 }
