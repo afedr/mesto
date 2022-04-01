@@ -12,11 +12,11 @@ function openModalWindow() {
   modalWindow.classList.toggle('popup_is-active');
   nameInput.value = nameEnter.textContent;
   jobInput.value = jobEnter.textContent;
-}
+} // Открытие popup и сохрание данных из профиля
 
 function closeModalWindow() {
   modalWindow.classList.toggle('popup_is-active');
-}
+} // Закрытие popup
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
@@ -25,7 +25,7 @@ function formSubmitHandler(evt) {
   jobEnter.textContent = jobInput.value;
 
   closeModalWindow();
-}
+} // Сохранение введенных данных в профиль
 
 formElement.addEventListener('submit', formSubmitHandler);
 editProfile.addEventListener('click', openModalWindow);
