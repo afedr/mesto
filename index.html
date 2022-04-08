@@ -35,7 +35,7 @@
 
     <section class="elements">
       <ul class="elements__container">
-        <li class="elements__card">
+        <!-- <li class="elements__card">
           <img class="elements__photo" alt="Карачаевск" src="./images/karachevskIcon.png">
           <div class="elements__caption">
             <h2 class="elements__title">Карачаевск</h2>
@@ -88,7 +88,7 @@
             <button class="elements__like-button" type="button"></button>
 
           </div>
-        </li>
+        </li> -->
       </ul>
     </section>
 
@@ -99,23 +99,44 @@
 
   </footer>
 
-  <div class="popup">
+  <div class="popup" id="popup-profile">
     <div class="popup__content">
-
       <h2 class="popup__title">Редактировать профиль</h2>
       <form name="formProfileEdit" class="popup__form">
         <input type="text" name="username" id="userName" class="popup__input popup__input_type_name" placeholder="ФИО">
-
         <input type="text" name="userabout" id="userAbout" class="popup__input popup__input_type_about" placeholder="О себе">
-
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
       <button type="button" class="popup__close"></button>
     </div>
 
   </div>
-  <script src="./js/index.js">
-  </script>
+
+  <div class="popup" id="popup-add">
+    <div class="popup__content">
+      <h2 class="popup__title">Новое место</h2>
+      <form name="formSubmitCard" class="popup__form popup__form_submit-card">
+        <input type="text" name="title" id="title" class="popup__input popup__input_type_title" placeholder="Название">
+        <input type="text" name="link" id="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку">
+        <button type="submit" class="popup__button">Сохранить</button>
+      </form>
+      <button type="button" class="popup__close popup__close_submit-card"></button>
+    </div>
+  </div>
+
+  <template class="template-card">
+  <li class="elements__card">
+    <img class="elements__photo" src="">
+    <div class="elements__caption">
+      <h2 class="elements__title"></h2>
+      <button class="elements__like-button" type="button"></button>
+    </div>
+  </li>
+  </template>
+
+
+  <script src="./js/index.js"></script>
+
 </body>
 
 </html>
