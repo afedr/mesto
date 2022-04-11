@@ -1,4 +1,5 @@
 .popup_is-active {
   visibility: visible;
   background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
 }

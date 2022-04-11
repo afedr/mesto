@@ -27,11 +27,11 @@ const initialCards = [{
 const editProfile = document.querySelector('.profile__edit-button');
 const modalWindow = document.querySelector('.popup');
 const modalCloseWindow = modalWindow.querySelector('.popup__close');
-let formElement = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.popup__input_type_name');
-let jobInput = document.querySelector('.popup__input_type_about');
-let nameEnter = document.querySelector('.profile__name');
-let jobEnter = document.querySelector('.profile__about');
+const formElement = document.querySelector('.popup__form');
+const nameInput = document.querySelector('.popup__input_type_name');
+const jobInput = document.querySelector('.popup__input_type_about');
+const nameEnter = document.querySelector('.profile__name');
+const jobEnter = document.querySelector('.profile__about');
 
 const cardsContainer = document.querySelector('.elements__container');
 const template = document.querySelector('.template-card');
