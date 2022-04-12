@@ -46,7 +46,7 @@
 
   </footer>
 
-  <div class="popup" id="popup-profile">
+  <div class="popup popup__proflle" id="popup-profile">
     <div class="popup__content">
       <h2 class="popup__title">Редактировать профиль</h2>
       <form name="formProfileEdit" class="popup__form">
@@ -59,30 +59,30 @@
 
   </div>
 
-  <div class="popup" id="popup-add">
+  <div class="popup popup__card" id="popup-add">
     <div class="popup__content">
       <h2 class="popup__title">Новое место</h2>
-      <form name="formSubmitCard" class="popup__form popup__form_submit-card">
+      <form name="formSubmitCard" class="popup__form">
         <input type="text" name="title" id="title" class="popup__input popup__input_type_title" placeholder="Название">
-        <input type="text" name="link" id="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку">
+        <input type="url" name="link" id="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку">
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
-      <button type="button" class="popup__close popup__close_submit-card"></button>
+      <button type="button" class="popup__close"></button>
     </div>
   </div>
 
-  <div class="popup popup_background-dark" id="popup-pic">
+  <div class="popup popup__image" id="popup-pic">
     <div class="popup__pic">
       <img class="popup__img" src="#" alt="#">
       <h2 class="popup__title-img"></h2>
-      <button type="button" class="popup__close-img"></button>
+      <button type="button" class="popup__close"></button>
     </div>
   </div>
 
   <template class="template-card">
   <li class="elements__card">
 
-    <img class="elements__photo" src="#">
+    <img class="elements__photo" src="#" alt="#">
     <div class="elements__caption">
       <h2 class="elements__title"></h2>
       <button class="elements__like-button" type="button"></button>

@@ -24,40 +24,53 @@ const initialCards = [{
   }
 ];
 
-const editProfile = document.querySelector('.profile__edit-button');
-const modalWindow = document.querySelector('.popup');
-const modalCloseWindow = modalWindow.querySelector('.popup__close');
-const formElement = document.querySelector('.popup__form');
-const nameInput = document.querySelector('.popup__input_type_name');
-const jobInput = document.querySelector('.popup__input_type_about');
+const profilePopup = document.querySelector('.popup__proflle');
+const cardPopup = document.querySelector('.popup__card');
+const imagePopup = document.querySelector('.popup__image');
+
+const cardsContainer = document.querySelector('.elements__container');
+const cardTemplate = document.querySelector('.template-card');
+
+const profileEditButton = document.querySelector('.profile__edit-button');
+const cardPopupAdd = document.querySelector('.profile__button');
+
+const profilePopupClose = profilePopup.querySelector('.popup__close');
+const profliePopupForm = profilePopup.querySelector('.popup__form');
+
+const nameInput = profilePopup.querySelector('.popup__input_type_name');
+const jobInput = profilePopup.querySelector('.popup__input_type_about');
 const nameEnter = document.querySelector('.profile__name');
 const jobEnter = document.querySelector('.profile__about');
 
-const cardsContainer = document.querySelector('.elements__container');
-const template = document.querySelector('.template-card');
-
-const pictureWindow = document.querySelector('#popup-pic');
-const pictureImage = document.querySelector('.popup__img');
-const pictureTitle = document.querySelector('.popup__title-img');
-const closePicWindowButton = document.querySelector('.popup__close-img');
-
-const popupAddCard = document.querySelector('#popup-add');
-const toggleFormButton = document.querySelector('.profile__button');
-const submitCardForm = document.querySelector('.popup__form_submit-card');
-const closeCardButton = document.querySelector('.popup__close_submit-card');
-let newCardTitle = document.querySelector('.popup__input_type_title');
-let newCardLink = document.querySelector('.popup__input_type_link');
+const imagePopupPicture = imagePopup.querySelector('.popup__img');
+const imagePopupTitle = imagePopup.querySelector('.popup__title-img');
+const imagePopupClose = imagePopup.querySelector('.popup__close');
 
 
+const cardPopupForm = cardPopup.querySelector('.popup__form');
+const cardPopupClose = cardPopup.querySelector('.popup__close');
+
+const newCardTitle = cardPopup.querySelector('.popup__input_type_title');
+const newCardLink = cardPopup.querySelector('.popup__input_type_link');
+
+//open popup
+function openPopup(popup) {
+  popup.classList.add('popup_is-active');
+}
+//close popup
+function closePopup(popup) {
+  popup.classList.remove('popup_is-active');
+}
 
 function createElement(item) {
-  const getElementTemplate = template.content.cloneNode(true);
+  const getElementTemplate = cardTemplate.content.cloneNode(true);
   const title = getElementTemplate.querySelector('.elements__title');
   const link = getElementTemplate.querySelector('.elements__photo')
   const deleteButton = getElementTemplate.querySelector('.elements__delete');
 
   title.textContent = item.name;
   link.src = item.link;
+  link.alt = item.name;
 
   // add like button
   getElementTemplate.querySelector('.elements__like-button').addEventListener('click', function(evt) {
@@ -72,9 +85,10 @@ function createElement(item) {
 
   // open image
   link.addEventListener('click', function() {
-    pictureWindow.classList.toggle('popup_is-active');
-    pictureImage.src = link.src;
-    pictureTitle.textContent = title.textContent;
+    imagePopupPicture.src = link.src;
+    imagePopupTitle.textContent = title.textContent;
+    imagePopupPicture.alt = "123"; // imagePopupTitle.textContent;
+    openPopup(imagePopup);
   });
 
   return getElementTemplate;
@@ -89,14 +103,15 @@ function render() {
 render();
 
 //edit profile
-function openModalWindow() {
-  modalWindow.classList.toggle('popup_is-active');
+function openProfilePopup() {
+
   nameInput.value = nameEnter.textContent;
   jobInput.value = jobEnter.textContent;
+  openPopup(profilePopup);
 }
 
-function closeModalWindow() {
-  modalWindow.classList.toggle('popup_is-active');
+function closeProfilePopup() {
+  closePopup(profilePopup);
 }
 
 function formSubmitHandler(evt) {
@@ -105,18 +120,18 @@ function formSubmitHandler(evt) {
   nameEnter.textContent = nameInput.value;
   jobEnter.textContent = jobInput.value;
 
-  closeModalWindow();
+  closeProfilePopup();
 }
 
 //add cards
-function openAddCardWindow() {
-  popupAddCard.classList.toggle('popup_is-active');
+function openCardPopup() {
   newCardTitle.value = "";
   newCardLink.value = "";
+  openPopup(cardPopup);
 }
 
-function closeAddCardWindow() {
-  popupAddCard.classList.toggle('popup_is-active');
+function closeCardPopup() {
+  closePopup(cardPopup);
 }
 
 function cardSubmitHandler(evt) {
@@ -129,20 +144,20 @@ function cardSubmitHandler(evt) {
 
   cardsContainer.prepend(createElement(cardData));
 
-  closeAddCardWindow();
+  closeCardPopup();
 }
 
 //close image window
-function closePicWindow() {
-  pictureWindow.classList.toggle('popup_is-active');
+function closeImagePopup() {
+  closePopup(imagePopup);
 }
 
-formElement.addEventListener('submit', formSubmitHandler);
-editProfile.addEventListener('click', openModalWindow);
-modalCloseWindow.addEventListener('click', closeModalWindow);
+profliePopupForm.addEventListener('submit', formSubmitHandler);
+profileEditButton.addEventListener('click', openProfilePopup);
+profilePopupClose.addEventListener('click', closeProfilePopup);
 
-submitCardForm.addEventListener('submit', cardSubmitHandler);
-toggleFormButton.addEventListener('click', openAddCardWindow);
-closeCardButton.addEventListener('click', closeAddCardWindow);
+cardPopupForm.addEventListener('submit', cardSubmitHandler);
+cardPopupAdd.addEventListener('click', openCardPopup);
+cardPopupClose.addEventListener('click', closeCardPopup);
 
-closePicWindowButton.addEventListener('click', closePicWindow);
+imagePopupClose.addEventListener('click', closeImagePopup);
