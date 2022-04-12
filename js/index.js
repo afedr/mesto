@@ -24,9 +24,9 @@ const initialCards = [{
   }
 ];
 
-const profilePopup = document.querySelector('.popup__proflle');
-const cardPopup = document.querySelector('.popup__card');
-const imagePopup = document.querySelector('.popup__image');
+const profilePopup = document.querySelector('.popup_proflle');
+const cardPopup = document.querySelector('.popup_card');
+const imagePopup = document.querySelector('.popup_image');
 
 const cardsContainer = document.querySelector('.elements__container');
 const cardTemplate = document.querySelector('.template-card');
@@ -87,7 +87,7 @@ function createElement(item) {
   link.addEventListener('click', function() {
     imagePopupPicture.src = link.src;
     imagePopupTitle.textContent = title.textContent;
-    imagePopupPicture.alt = "123"; // imagePopupTitle.textContent;
+    imagePopupPicture.alt = imagePopupTitle.textContent;
     openPopup(imagePopup);
   });
 
