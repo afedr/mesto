@@ -8,10 +8,11 @@
   min-width: 282px;
   box-sizing: border-box;
   cursor: default;
+  width: 430px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
   .popup__content {
-    padding: 25px 22px 25px 22px;
+    width: calc(100% - 100px);
   }
 }

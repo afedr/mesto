@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 358px;
-  gap: 17px;
+  width: 100%;
+  height: 260px;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 400px) {
