@@ -188,7 +188,7 @@ function closeImagePopup() {
 //Закрытие попапов при нажатии на оверлей
 function setOverlayListener(popup) {
   popup.addEventListener('mousedown', function(evt) {
-    console.log(evt.target.classList);
+
     if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
       closePopup(popup);
     }
