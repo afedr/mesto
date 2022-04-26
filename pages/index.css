@@ -42,7 +42,9 @@
 @import url('../blocks/popup/__title-img/popup__title-img.css');
 @import url('../blocks/popup/_image/popup_image.css');
 @import url('../blocks/popup/_card/popup_card.css');
-@import url('../blocks/popup/_proflle/popup_profile.css');
+@import url('../blocks/popup/_profile/popup_profile.css');
 @import url('../blocks/popup/__error/popup__error.css');
 @import url('../blocks/popup/__button/_state/popup__button_state_disabled.css');
 @import url('../blocks/popup/__input/_state/popup__input_state_redline.css');
+@import url('../blocks/popup/__field/popup__field.css');
+@import url('../blocks/popup/__input/_type/popup__input_type_link.css');
