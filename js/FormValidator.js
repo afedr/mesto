@@ -11,11 +11,22 @@ export class FormValidator {
     this._button = this._form.querySelector(this._config.buttonSelector);
   }
 
+  // функция очистки ошибок и управления кнопкой
+  resetValidation() {
+    this._toggleButton();
+
+    this._inputs.forEach((inputElement) => {
+      this._hideInputError(inputElement)
+    });
+  }
+
+
   //включение валидации
   enableValidation() {
     this._form.addEventListener('input', (event) => {this._handleFormInput(event)});
     this._toggleButton();
   }
+
 
   //показывает либо не показывает ошибку при вводе текста в поле
   _handleFormInput(event) {

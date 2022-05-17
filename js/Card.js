@@ -1,5 +1,3 @@
-import {imagePopupPicture, imagePopupTitle, imagePopup, openPopup} from './utils.js';
-
 export class Card {
   _cardContent;
   _title;
@@ -7,7 +5,7 @@ export class Card {
   _deleteButton;
   _likeButton;
 
-  constructor (name, link, selector) {
+  constructor (name, link, selector, handleCardClick) {
     const cardTemplate = document.querySelector(selector);
     this._cardContent = cardTemplate.content.cloneNode(true);
 
@@ -16,6 +14,8 @@ export class Card {
     this._title.textContent = name;
     this._image.src = link;
     this._image.alt = name;
+
+    this._handleCardClick = handleCardClick;
 
     this._setEventListeners();
   }
@@ -30,7 +30,10 @@ export class Card {
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => {this._toggleLikeButton()});
     this._deleteButton.addEventListener('click', () => {this._deleteCard()});
-    this._image.addEventListener('click', () => {this._showPopup()});
+
+    this._image.addEventListener('click', () => {
+      this._handleCardClick(this._title.textContent, this._image.src);
+    });
   }
 
   _toggleLikeButton() {
@@ -40,13 +43,6 @@ export class Card {
   _deleteCard() {
     const listItem = this._deleteButton.closest('.elements__card');
     listItem.remove();
-  }
-
-  _showPopup() {
-    imagePopupPicture.src = this._image.src;
-    imagePopupTitle.textContent = this._title.textContent;
-    imagePopupPicture.alt = this._image.alt;
-    openPopup(imagePopup);
   }
 
   getContent() {
