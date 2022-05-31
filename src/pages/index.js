@@ -1,3 +1,5 @@
+import '../pages/index.css';
+
 const initialCards = [{
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -32,7 +34,6 @@ import {Section} from './Section.js';
 import {FormValidator} from './FormValidator.js';
 
 const userInfo = new UserInfo ('.profile__name', '.profile__about');
-
 const imagePopup = new PopupWithImage('.popup_image');
 
 // разметка для отрисовки элементов на странице
@@ -73,10 +74,8 @@ const cardPopup = new PopupWithForm(
     cardsList.addItem(card.getContent());
   });
 
-//.resetValidation();
-
-const profileEditButton = document.querySelector('.profile__edit-button'); // редактирование профиля
-const cardPopupAdd = document.querySelector('.profile__button'); //добавление карточки
+const profileEditButton = document.querySelector('.profile__edit-button');
+const cardPopupAdd = document.querySelector('.profile__button');
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_about');
 
@@ -110,7 +109,7 @@ function enableValidation(config) {
     formValidator.enableValidation();
 
     const formName = form.getAttribute('name')
-    formValidators[formName] = formValidator; // записываем в словарь ключ formname со зрачением formvalidator
+    formValidators[formName] = formValidator;
   });
 }
 

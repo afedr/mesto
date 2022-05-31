@@ -6,20 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
 
   <header class="header">
-    <img class="header__logo" alt="Логотип" src="./images/vector1Icon.svg">
+    <img class="header__logo" alt="Логотип" src="<%=require('./images/vector1Icon.svg')%>">
 
   </header>
   <main class="main">
 
     <section class="profile">
       <div class="profile__avatar">
-        <img class="profile__avatar-icon" alt="Аватар" src="./images/avatarIcon.png">
+        <img class="profile__avatar-icon" alt="Аватар" src="<%=require('./images/avatarIcon.png')%>">
       </div>
       <div class="profile__info">
         <div class="profile__container">
@@ -107,7 +106,6 @@
     <button type="button" class="elements__delete"></button>
   </li>
   </template>
-
   <script type="module" src="./components/index.js"></script>
   <script type="module" src="./components/Card.js"></script>
   <script type="module" src="./components/Popup.js"></script>

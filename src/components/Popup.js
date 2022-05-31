@@ -25,7 +25,6 @@ export class Popup {
     }
   }
 
-// при клике мыши закрывать попап
   setEventListeners() {
     this._currentPopup.addEventListener('mousedown', function(evt) {
       if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
@@ -34,41 +33,3 @@ export class Popup {
     }.bind(this));
   }
 }
-
-
-
-// //открываем попам
-// function openPopup(popup) {
-//   popup.classList.add('popup_is-active');
-//   document.addEventListener('keydown', closePopupByEsc);
-// }
-
-// //закрываем попап
-// function closePopup(popup) {
-//   popup.classList.remove('popup_is-active');
-//   document.removeEventListener('keydown', closePopupByEsc);
-
-// }
-
-// //закрываем открытый попап
-// function closeCurrentPopup() {
-//   const openedPopup = document.querySelector('.popup_is-active');
-//   closePopup(openedPopup);
-// }
-
-// //обрабатываем нажатие кнопки esc
-// function closePopupByEsc(evt) {
-//   if (evt.key === "Escape") {
-//     closeCurrentPopup();
-//   }
-// }
-
-// // Закрытие попапов при нажатии на оверлей
-// function setOverlayListener(popup) {
-//   popup.addEventListener('mousedown', function(evt) {
-
-//     if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
-//       closePopup(popup);
-//     }
-//   });
-// }

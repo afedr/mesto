@@ -22,7 +22,7 @@ export class PopupWithForm extends Popup {
     return inputValues;
   }
 
-  //перезаписывает закрытие попапа и обрабатывает отпраку тек формы
+  //перезаписывает закрытие попапа и обрабатывает отправку тек формы
   setEventListeners() {
     super.setEventListeners();
     this._currentPopupForm.addEventListener('submit', (evt) => {

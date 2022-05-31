@@ -4,7 +4,7 @@
   "description": "Интерактивный сайт для публикации изображений и изменения профиля. ### Технологии",
   "main": "index.js",
   "scripts": {
-    "build": "rd /s /q dist && webpack",
+    "build": "webpack --mode production",
     "dev": "webpack serve"
   },
   "repository": {
@@ -18,8 +18,21 @@
   },
   "homepage": "https://github.com/afedr/mesto#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.10",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^7.0.0",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
+  },
+  "dependencies": {
+    "core-js": "^3.22.7"
   }
 }
