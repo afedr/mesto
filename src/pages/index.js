@@ -1,53 +1,30 @@
 import '../pages/index.css';
+import {initialCards} from '../utils/constants.js';
 
-const initialCards = [{
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-import {UserInfo} from './UserInfo.js';
-import {Card} from './Card.js';
-import {PopupWithImage} from './PopupWithImage.js';
-import {PopupWithForm} from './PopupWithForm.js';
-import {Section} from './Section.js';
-import {FormValidator} from './FormValidator.js';
+import {UserInfo} from '../components/UserInfo.js';
+import {Card} from '../components/Card.js';
+import {PopupWithImage} from '../components/PopupWithImage.js';
+import {PopupWithForm} from '../components/PopupWithForm.js';
+import {Section} from '../components/Section.js';
+import {FormValidator} from '../components/FormValidator.js';
 
 const userInfo = new UserInfo ('.profile__name', '.profile__about');
 const imagePopup = new PopupWithImage('.popup_image');
+
+function createCard(name, link) {
+  const card = new Card (
+    name,
+    link,
+    '.template-card',
+    imagePopup.openPopup.bind(imagePopup));
+return card.getContent();
+}
 
 // разметка для отрисовки элементов на странице
 const cardsList = new Section ({
   items: initialCards,
   renderer: (cardItem) => {
-    const name = cardItem.name;
-    const link = cardItem.link;
-    const card = new Card (
-        name,
-        link,
-        '.template-card',
-        imagePopup.openPopup.bind(imagePopup));
-    return card.getContent();
+    return createCard(cardItem.name, cardItem.link)
   }},
   '.elements__container'
 );
@@ -66,12 +43,7 @@ const profilePopup = new PopupWithForm(
 const cardPopup = new PopupWithForm(
   ".popup_card",
   (inputValues) => {
-    const card = new Card (
-        inputValues['title'],
-        inputValues['link'],
-        '.template-card',
-        imagePopup.openPopup.bind(imagePopup));
-    cardsList.addItem(card.getContent());
+    cardsList.addItem((createCard(inputValues['title'], inputValues['link'])));
   });
 
 const profileEditButton = document.querySelector('.profile__edit-button');

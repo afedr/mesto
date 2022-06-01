@@ -4,12 +4,13 @@ export class Popup {
 
   constructor (popupSelector) {
     this._currentPopup = document.querySelector(popupSelector);
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   //открытие попапа
   openPopup() {
     this._currentPopup.classList.add('popup_is-active');
-    document.addEventListener('keydown', this._handleEscClose.bind(this));
+    document.addEventListener('keydown', this._handleEscClose);
   }
 
   //закрытие попапа
