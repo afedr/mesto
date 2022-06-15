@@ -50,7 +50,7 @@
 .elements__title{color:#000;font-family:Inter,Arial,sans-serif;font-size:24px;font-weight:900;line-height:29px;margin:0 0 0 21px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:219px}
 .profile__avatar-button{background:none;border:0;cursor:pointer;height:100%;left:0;padding:0;position:absolute;top:0;transition:background-color .2s ease-in-out;width:100%}.profile__avatar-button:focus,.profile__avatar-button:hover{background-color:rgba(0,0,0,.8);background-image:url(9300d1cef913648cd985.png);background-position:50%;background-repeat:no-repeat}
 
-.popup_content_avatarform{height:272px}
+.popup_content-avatarform{height:272px}
 .popup_form_avatar{height:215px}
 .popup_is_hidden{visibility:hidden}
 .popup_content_ok{height:181px}
