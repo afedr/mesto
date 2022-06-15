@@ -1,8 +1,10 @@
  // управление отображением информации о пользователе на странице
  export class UserInfo {
-   constructor (nameSelector, infoSelector) {
+   constructor (nameSelector, infoSelector, avatarSelector) {
     this._userName = document.querySelector(nameSelector);
     this._userInfo = document.querySelector(infoSelector);
+    this._userAvatar = document.querySelector(avatarSelector)
+    this._userId = 0;
    }
 
    // возвращает объект с данными пользователя
@@ -18,5 +20,13 @@
    setUserInfo({name, info}) {
     this._userName.textContent = name;
     this._userInfo.textContent = info;
+
+   }
+   setAvatar(avatar) {
+    this._userAvatar.src=avatar;
+   }
+
+   setUserId(id) {
+     this._userId = id;
    }
  }
