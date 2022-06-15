@@ -14,7 +14,7 @@ const userInfo = new UserInfo ('.profile__name', '.profile__about', '.profile__a
 const imagePopup = new PopupWithImage('.popup_image');
 
 const okPopup = new OkPopup (
-  '.popup_сontent_ok',
+  '.popup_ok',
   (card) => {
     api.deleteCard(card._id)
     .then ((data) => {
@@ -143,7 +143,7 @@ const cardPopup = new PopupWithForm(
   });
 
 const avatarPopup = new PopupWithForm (
-  ".popup_сontent-avatar",
+  ".popup_avatar",
   (inputValues) => {
     return api.editAvatar ({
       avatar: inputValues['link']

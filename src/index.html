@@ -96,15 +96,15 @@
     </div>
   </div>
 
-  <div class="popup popup_сontent-avatar" id="popup-avatar">
+  <div class="popup popup_avatar" id="popup-avatar">
 
-    <div class="popup__content popup_content_avatarform" id="popupAvatar">
+    <div class="popup__content popup_content-avatar" id="popupAvatar">
 
-      <form name="formAvatarEdit" class="popup__form popup_form_avatar" novalidate>
+      <form name="formAvatarEdit" class="popup__form popup_form-avatar" novalidate>
         <h2 class="popup__title">Обновить аватар</h2>
         <div class="popup__field">
           <input type="url" id="link-inputs" name="link" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку" required>
-          <span class="popup__error" id="link-input-errors"></span>
+          <span class="popup__error" id="link-inputs-error"></span>
         </div>
         <button type="submit" class="popup__button">Сохранить</button>
       </form>
@@ -113,11 +113,11 @@
 
   </div>
 
-  <div class="popup popup_сontent_ok" id="popup-ok">
+  <div class="popup popup_ok" id="popup-ok">
 
-  <div class="popup__content popup_content_ok" id="popupOk">
+  <div class="popup__content popup_content-ok" id="popupOk">
 
-    <form name="formOk" class="popup__form popup_content_ok_form" novalidate>
+    <form name="formOk" class="popup__form popup_form-ok" novalidate>
       <h2 class="popup__title">Вы уверены?</h2>
       <button type="submit" class="popup__button">Да</button>
     </form>
