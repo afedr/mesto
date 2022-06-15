@@ -143,7 +143,7 @@ const cardPopup = new PopupWithForm(
   });
 
 const avatarPopup = new PopupWithForm (
-  ".popup_сontent_avatar",
+  ".popup_сontent-avatar",
   (inputValues) => {
     return api.editAvatar ({
       avatar: inputValues['link']
