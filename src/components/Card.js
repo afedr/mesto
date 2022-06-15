@@ -25,7 +25,6 @@ export class Card {
     this._handleDeleteClick = handleDeleteClick;
     this._setEventListeners();
 
-    console.log(this._ownerId,this._userId);
     if (this._ownerId != this._userId)
 
     {
@@ -46,7 +45,6 @@ export class Card {
   }
 
   _setEventListeners() {
-
     this._likeButton.addEventListener('click', () => {
       if (this._likeButton.classList.contains('elements__like-button_active')) {
         this._handleLikeClick.deleteLikeClick({
@@ -75,7 +73,6 @@ export class Card {
   }
 
   _deleteCard() {
-
     const listItem = this._deleteButton.closest('.elements__card');
     listItem.remove();
   }

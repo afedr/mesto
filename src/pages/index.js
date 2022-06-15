@@ -20,6 +20,10 @@ const okPopup = new OkPopup (
     .then ((data) => {
       card._deleteCard();
       })
+
+    .catch((err) => {
+        console.log(err);
+      });
     });
 
 const api = new Api ({
@@ -30,21 +34,6 @@ const api = new Api ({
     }
   }
 );
-
-api.getUserInfo()
-.then ((data) => {
-  userInfo.setUserInfo({
-    name: data.name,
-    info: data.about,
-
-  })
-  userInfo.setAvatar(
-    data.avatar
-  )
-  userInfo.setUserId (
-    data._id
-  )
-})
 
 
 function createCard(name, link, id, ownerId, count) {
@@ -62,12 +51,18 @@ function createCard(name, link, id, ownerId, count) {
         .then ((res) => {
           card.updateLikeCount(res.likes.length)
         })
+        .catch((err) => {
+          console.log(err);
+        });
       },
       deleteLikeClick: (data) => {
         api.deleteLikeCard(data)
         .then ((res) => {
           card.updateLikeCount(res.likes.length)
         })
+        .catch((err) => {
+          console.log(err);
+        });
       },
 
     },
@@ -86,15 +81,31 @@ const cardsList = new Section ({
   '.elements__container'
 );
 
-// api.likeCard() {
+api.getUserInfo()
+.then ((data) => {
+  userInfo.setUserInfo({
+    name: data.name,
+    info: data.about,
 
-// }
+  })
+  userInfo.setAvatar(
+    data.avatar
+  )
+  userInfo.setUserId (
+    data._id
+  )
+})
+.catch((err) => {
+  console.log(err);
+});
 
 api.getInitialCards()
 .then ((data) => {
 cardsList.renderItems(data);
 })
-
+.catch((err) => {
+  console.log(err);
+});
 
 
 const profilePopup = new PopupWithForm(
@@ -109,6 +120,9 @@ const profilePopup = new PopupWithForm(
         info: inputValues['userabout'],
       })
     })
+    .catch((err) => {
+      console.log(err);
+    });
   });
 
 
@@ -121,8 +135,11 @@ const cardPopup = new PopupWithForm(
     })
     .then ((data) => {
       cardsList.addItem((createCard(inputValues['title'], inputValues['link'], data._id, data.owner._id, data.likes.length)));
-    console.log(data);
+
     })
+    .catch((err) => {
+      console.log(err);
+    });
   });
 
 const avatarPopup = new PopupWithForm (
@@ -136,11 +153,11 @@ const avatarPopup = new PopupWithForm (
         data.avatar
       )
     })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 )
-
-
-
 
 const profileEditButton = document.querySelector('.profile__edit-button');
 const cardPopupAdd = document.querySelector('.profile__button');

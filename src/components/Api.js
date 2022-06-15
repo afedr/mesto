@@ -27,7 +27,6 @@ export class Api {
     .then (this._checkResponse)
   }
 
-
   patchUserProfile(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
@@ -50,7 +49,6 @@ export class Api {
   }
 
   likeCard(data) {
-    console.log(data);
     return fetch(`${this._baseUrl}/cards/${data.cardId}/likes`, {
       method: 'PUT',
       headers: this._headers,
@@ -82,7 +80,6 @@ deleteCard(cardId) {
   })
   .then (this._checkResponse)
 }
-
 }
 
 

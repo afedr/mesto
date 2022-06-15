@@ -56,3 +56,5 @@
 @import url('../blocks/popup/popup_content_avatarform/popup_content_avatarform.css');
 @import url('../blocks/popup/popup_form_avatar/popup_form_avatar.css');
 @import url('../blocks/popup/_is_hidden/popup_is_hidden.css');
+@import url('../blocks/popup/popup_content_ok/popup_content_ok.css');
+@import url('../blocks/popup/popup_content_ok_form/popup_content_ok_form.css');
