@@ -30,9 +30,6 @@ export class PopupWithForm extends Popup {
       evt.preventDefault();
       this._button.textContent = "Сохранение..."
       this._callbackSubmitForm(this._getInputValues())
-      .then ((data) => {
-        this.closePopup();
-      })
     });
   }
 

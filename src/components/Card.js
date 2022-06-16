@@ -56,7 +56,6 @@ export class Card {
         })
       }
 
-      this._toggleLikeButton();
     });
     this._deleteButton.addEventListener('click', () => {
       this._handleDeleteClick(this);
@@ -68,10 +67,6 @@ export class Card {
 
   }
 
-  _toggleLikeButton() {
-    this._likeButton.classList.toggle('elements__like-button_active');
-  }
-
   _deleteCard() {
     const listItem = this._deleteButton.closest('.elements__card');
     listItem.remove();
@@ -81,7 +76,23 @@ export class Card {
     return this._cardContent;
   }
 
-  updateLikeCount(count) {
-    this._likeCount.textContent = count;
+  updateLike(likes) {
+
+    this._likeCount.textContent = likes.length;
+
+    let likedByUser = false;
+    likes.forEach((user) => {
+      if ( this._userId ===  user._id) {
+        likedByUser = true
+      } else {
+        likedByUser = false
+      }
+    })
+
+    if (likedByUser) {
+      this._likeButton.classList.add('elements__like-button_active');
+    } else {
+      this._likeButton.classList.remove('elements__like-button_active');
+    }
   }
 }

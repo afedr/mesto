@@ -1,6 +1,6 @@
 import {Popup} from './Popup.js';
 
-export class OkPopup extends Popup {
+export class PopupWithConfirmation extends Popup {
   constructor (popupSelector, deleteCardRequest) {
     super(popupSelector);
     this._button = this._currentPopup.querySelector('.popup__button')
@@ -16,8 +16,7 @@ export class OkPopup extends Popup {
     super.setEventListeners();
     this._button.addEventListener('click', (evt) => {
       evt.preventDefault();
-      this._deleteCardRequest(this.currentCard);
-      this.closePopup();
+      this._deleteCardRequest(this.currentCard)
     });
   }
 }

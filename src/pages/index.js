@@ -8,19 +8,19 @@ import {PopupWithForm} from '../components/PopupWithForm.js';
 import {Section} from '../components/Section.js';
 import {FormValidator} from '../components/FormValidator.js';
 import {Api} from '../components/Api.js';
-import { OkPopup } from '../components/OkPopup.js';
+import { PopupWithConfirmation } from '../components/PopupWithConfirmation';
 
 const userInfo = new UserInfo ('.profile__name', '.profile__about', '.profile__avatar-icon');
 const imagePopup = new PopupWithImage('.popup_image');
 
-const okPopup = new OkPopup (
+const popupWithConfirmation = new PopupWithConfirmation (
   '.popup_ok',
   (card) => {
-    api.deleteCard(card._id)
+  api.deleteCard(card._id)
     .then ((data) => {
       card._deleteCard();
+      popupWithConfirmation.closePopup();
       })
-
     .catch((err) => {
         console.log(err);
       });
@@ -36,7 +36,7 @@ const api = new Api ({
 );
 
 
-function createCard(name, link, id, ownerId, count) {
+function createCard(name, link, id, ownerId, likes) {
   const card = new Card (
     name,
     link,
@@ -49,7 +49,7 @@ function createCard(name, link, id, ownerId, count) {
       addLikeClick: (data) => {
         api.likeCard(data)
         .then ((res) => {
-          card.updateLikeCount(res.likes.length)
+          card.updateLike(res.likes)
         })
         .catch((err) => {
           console.log(err);
@@ -58,7 +58,7 @@ function createCard(name, link, id, ownerId, count) {
       deleteLikeClick: (data) => {
         api.deleteLikeCard(data)
         .then ((res) => {
-          card.updateLikeCount(res.likes.length)
+          card.updateLike(res.likes)
         })
         .catch((err) => {
           console.log(err);
@@ -66,9 +66,9 @@ function createCard(name, link, id, ownerId, count) {
       },
 
     },
-    okPopup.openPopup.bind(okPopup),
+    popupWithConfirmation.openPopup.bind(popupWithConfirmation),
     );
-  card.updateLikeCount(count);
+  card.updateLike(likes);
   return card.getContent();
 }
 
@@ -76,53 +76,82 @@ function createCard(name, link, id, ownerId, count) {
 const cardsList = new Section ({
 
   renderer: (cardItem) => {
-    return createCard(cardItem.name, cardItem.link, cardItem._id, cardItem.owner._id, cardItem.likes.length)
+    return createCard(cardItem.name, cardItem.link, cardItem._id, cardItem.owner._id, cardItem.likes)
   }},
   '.elements__container'
 );
 
-api.getUserInfo()
-.then ((data) => {
+// api.getUserInfo()
+// .then ((data) => {
+//   userInfo.setUserInfo({
+//     name: data.name,
+//     info: data.about,
+
+//   })
+//   userInfo.setAvatar(
+//     data.avatar
+//   )
+//   userInfo.setUserId (
+//     data._id
+//   )
+// })
+// .catch((err) => {
+//   console.log(err);
+// });
+
+// api.getInitialCards()
+// .then ((data) => {
+// cardsList.renderItems(data);
+// })
+// .catch((err) => {
+//   console.log(err);
+// });
+
+Promise.all ([
+  api.getUserInfo(),
+  api.getInitialCards()
+])
+.then ((values) => {
+  const [userData, intialCards] = values;
+  // const userData = values[0];
+  // const intialCards = values[1];
   userInfo.setUserInfo({
-    name: data.name,
-    info: data.about,
+    name: userData.name,
+    info: userData.about,
 
   })
   userInfo.setAvatar(
-    data.avatar
+    userData.avatar
   )
   userInfo.setUserId (
-    data._id
+    userData._id
   )
+  cardsList.renderItems(intialCards);
 })
-.catch((err) => {
-  console.log(err);
-});
-
-api.getInitialCards()
-.then ((data) => {
-cardsList.renderItems(data);
+.catch ((err) => {
+  console.log(err)
 })
-.catch((err) => {
-  console.log(err);
-});
 
 
 const profilePopup = new PopupWithForm(
   ".popup_profile",
   (inputValues) => {
-    return api.patchUserProfile({
+    api.patchUserProfile({
       name: inputValues['username'],
       about: inputValues['userabout']})
     .then ((data) => {
       userInfo.setUserInfo({
-        name: inputValues['username'],
-        info: inputValues['userabout'],
+        name: data.name,
+        info: data.about,
       })
+      profilePopup.closePopup();
     })
     .catch((err) => {
       console.log(err);
-    });
+    })
+    .finally ((res) => {
+      profilePopup._button.textContent = "Сохранить"
+    })
   });
 
 
@@ -134,12 +163,15 @@ const cardPopup = new PopupWithForm(
       link:inputValues['link']
     })
     .then ((data) => {
-      cardsList.addItem((createCard(inputValues['title'], inputValues['link'], data._id, data.owner._id, data.likes.length)));
-
+      cardsList.addItem((createCard(data.name, data.link, data._id, data.owner._id, data.likes)));
+      cardPopup.closePopup();
     })
     .catch((err) => {
       console.log(err);
-    });
+    })
+    .finally ((res) => {
+      cardPopup._button.textContent = "Сохранить"
+    })
   });
 
 const avatarPopup = new PopupWithForm (
@@ -150,12 +182,16 @@ const avatarPopup = new PopupWithForm (
     })
     .then ((data) => {
       userInfo.setAvatar(
-        data.avatar
+        data.avatar,
+        avatarPopup.closePopup()
       )
     })
     .catch((err) => {
       console.log(err);
-    });
+    })
+    .finally ((res) => {
+      avatarPopup._button.textContent = "Сохранить"
+    })
   }
 )
 
@@ -190,7 +226,7 @@ imagePopup.setEventListeners();
 profilePopup.setEventListeners();
 cardPopup.setEventListeners();
 avatarPopup.setEventListeners();
-okPopup._setEventListeners();
+popupWithConfirmation._setEventListeners();
 
 const formValidators = {}
 
